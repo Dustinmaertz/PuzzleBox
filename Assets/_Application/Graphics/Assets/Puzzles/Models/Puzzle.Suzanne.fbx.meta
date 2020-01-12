@@ -7,6 +7,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Extrior
+    second: {fileID: 2100000, guid: bcdb0a1a39b1d4849a2683c5fb77ab0e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Interior
+    second: {fileID: 2100000, guid: 66b1cb2c3a6456b4f9e72b7318893f75, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: No Name
     second: {fileID: 2100000, guid: bcdb0a1a39b1d4849a2683c5fb77ab0e, type: 2}
   materials:

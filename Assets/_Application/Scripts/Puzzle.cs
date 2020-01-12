@@ -20,6 +20,7 @@ public class Puzzle : MonoBehaviour
     public Vector3 colliderSize;
 
     public bool flipSpawnDir = false;
+    public bool randomizePartDir = false;
 
     void Start()
     {
@@ -40,16 +41,14 @@ public class Puzzle : MonoBehaviour
             // Instatiate clone of puzzle part
             Instantiate(child, collectionSpawn);
 
-            var meshRenderer = child.gameObject.GetComponent<MeshRenderer>();
+            var meshRenderer = child.gameObject.GetComponent<Renderer>();
             meshRenderer.material = ghostMaterial;
 
-            // Remove mesh filter and renderer from puzzle goal transforms 
-            /*
-            var meshFilter = child.gameObject.GetComponent<MeshFilter>();
-            Destroy(meshFilter);
-            var meshRenderer = child.gameObject.GetComponent<MeshRenderer>();
-            Destroy(meshRenderer);
-            */
+            //ChangeMaterial(ghostMaterial);
+
+
+
+
         }
 
         // Add manipulation handeler and mesh collider to puzzle pieces.
@@ -60,8 +59,17 @@ public class Puzzle : MonoBehaviour
             child.gameObject.AddComponent<NearInteractionGrabbable>();
             child.gameObject.AddComponent<PuzzleGoalLocation>();
 
+            var manip = child.gameObject.GetComponent<ManipulationHandler>();
+            manip.ManipulationType = ManipulationHandler.HandMovementType.OneHandedOnly;
+
+
             var  puzzleGoal = child.gameObject.GetComponent<PuzzleGoalLocation>();
             puzzleGoal.GetGoalLocation();
+
+            if(!randomizePartDir)
+            {
+                child.transform.rotation = Random.rotation;
+            }
 
         }
 
@@ -70,6 +78,7 @@ public class Puzzle : MonoBehaviour
 
     }
 
+    // Move puzzle to corret location
     public void CreatePuzzleGhost()
     {
         //Instantiate(puzzleWhole, puzzleSpawn);
@@ -77,13 +86,43 @@ public class Puzzle : MonoBehaviour
         puzzleGoalLocation.rotation = puzzleSpawn.rotation;
     }
 
+    // Set up Puzzle goal object manipulation
     public void SetupPuzzleManip()
     {
+        // Add components
         puzzleParts.AddComponent<BoxCollider>();
         puzzleParts.AddComponent<ManipulationHandler>();
         puzzleParts.AddComponent<NearInteractionGrabbable>();
 
+        // Configure Manipulation Handeler settings
+        var manip = puzzleParts.gameObject.GetComponent<ManipulationHandler>();
+        manip.ManipulationType = ManipulationHandler.HandMovementType.OneHandedOnly;
+        manip.TwoHandedManipulationType = ManipulationHandler.TwoHandedManipulation.MoveRotate;
+
+        // Get and Set collider size
         var col = puzzleParts.GetComponent<BoxCollider>();
         col.size = colliderSize;
+
+        // Change all renderer sub materials to ghost mat.
+        ChangeMaterial(ghostMaterial);
+
     }
+
+
+    void ChangeMaterial(Material newMat)
+    {
+        Renderer[] children;
+        children = puzzleParts.gameObject.GetComponentsInChildren<Renderer>();
+        foreach (Renderer rend in children)
+        {
+            var mats = new Material[rend.materials.Length];
+            for (var j = 0; j < rend.materials.Length; j++)
+            {
+                mats[j] = newMat;
+            }
+            rend.materials = mats;
+        }
+    }
+
+
 }

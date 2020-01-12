@@ -27,9 +27,6 @@ public class Puzzle : MonoBehaviour
         // Collect puzzle part goal locations
         SpawnPuzzleParts();
 
-        // Spawn Ghost version of puzzle object
-        CreatePuzzleGhost();
-
         SetupPuzzleManip();
     }
 
@@ -43,48 +40,42 @@ public class Puzzle : MonoBehaviour
 
             var meshRenderer = child.gameObject.GetComponent<Renderer>();
             meshRenderer.material = ghostMaterial;
-
-            //ChangeMaterial(ghostMaterial);
-
-
-
-
         }
 
         // Add manipulation handeler and mesh collider to puzzle pieces.
         foreach (Transform child in puzzleCollection.transform)
         {
+            // Add components
             child.gameObject.AddComponent<BoxCollider>();
             child.gameObject.AddComponent<ManipulationHandler>();
             child.gameObject.AddComponent<NearInteractionGrabbable>();
             child.gameObject.AddComponent<PuzzleGoalLocation>();
 
+            // Configure Manipulation Handeler settings
             var manip = child.gameObject.GetComponent<ManipulationHandler>();
             manip.ManipulationType = ManipulationHandler.HandMovementType.OneHandedOnly;
+            var near = child.gameObject.GetComponent<NearInteractionGrabbable>();
+            near.ShowTetherWhenManipulating = true;
 
-
+            // Get puzzle part goal location
             var  puzzleGoal = child.gameObject.GetComponent<PuzzleGoalLocation>();
             puzzleGoal.GetGoalLocation();
 
+            // Check if random dir is checked
             if(!randomizePartDir)
             {
                 child.transform.rotation = Random.rotation;
             }
 
         }
-
         // Update collection
         puzzleCollection.UpdateCollection();
 
-    }
-
-    // Move puzzle to corret location
-    public void CreatePuzzleGhost()
-    {
-        //Instantiate(puzzleWhole, puzzleSpawn);
+        // Move puzzle to corret location
         puzzleGoalLocation.position = puzzleSpawn.position;
         puzzleGoalLocation.rotation = puzzleSpawn.rotation;
     }
+
 
     // Set up Puzzle goal object manipulation
     public void SetupPuzzleManip()
@@ -98,6 +89,8 @@ public class Puzzle : MonoBehaviour
         var manip = puzzleParts.gameObject.GetComponent<ManipulationHandler>();
         manip.ManipulationType = ManipulationHandler.HandMovementType.OneHandedOnly;
         manip.TwoHandedManipulationType = ManipulationHandler.TwoHandedManipulation.MoveRotate;
+        var near = puzzleParts.gameObject.GetComponent<NearInteractionGrabbable>();
+        near.ShowTetherWhenManipulating = true;
 
         // Get and Set collider size
         var col = puzzleParts.GetComponent<BoxCollider>();
@@ -105,7 +98,6 @@ public class Puzzle : MonoBehaviour
 
         // Change all renderer sub materials to ghost mat.
         ChangeMaterial(ghostMaterial);
-
     }
 
 
@@ -124,5 +116,21 @@ public class Puzzle : MonoBehaviour
         }
     }
 
+    public void ResetPuzzle()
+    {
+        // Collect puzzle part goal locations
+        SpawnPuzzleParts();
 
+        SetupPuzzleManip();
+    }
+
+    public void CleanPuzzles()
+    {
+        // needs to be changed to a game object 
+        foreach (GameObject child in collectionSpawn)
+        {
+           // child.gameObject.SetActive = false;
+        }
+
+    }
 }

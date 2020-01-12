@@ -1,0 +1,178 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3123452872457259148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9163669183965226287}
+  - component: {fileID: 3264163882082715375}
+  m_Layer: 0
+  m_Name: Puzzle.Sphere
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9163669183965226287
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3123452872457259148}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1.0161, z: 1}
+  m_Children:
+  - {fileID: 887132094997503387}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3264163882082715375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3123452872457259148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eaacbb349cc80640a49887a2b3f048d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzleWhole: {fileID: -927199367670048503, guid: 90fd8da0b88896945bb93088734ee61d,
+    type: 3}
+  puzzleParts: {fileID: 8588943015839411682}
+  ghostMaterial: {fileID: 2100000, guid: cc0f9c9aa3b651f4d8ad41c367eceacc, type: 2}
+  puzzleSpawn: {fileID: 0}
+  puzzlePartsGoal: {fileID: 4713395182999494641}
+  puzzleGoalLocation: {fileID: 887132094997503387}
+  collectionSpawn: {fileID: 0}
+  puzzleCollection: {fileID: 0}
+  puzzleGoalTransform:
+  - {fileID: 0}
+  - {fileID: 0}
+  colliderSize: {x: 0.2, y: 0.2, z: 0.2}
+  flipSpawnDir: 0
+  randomizePartDir: 0
+--- !u!1 &8048653160758102711
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 887132094997503387}
+  m_Layer: 0
+  m_Name: PuzzleGoalLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &887132094997503387
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8048653160758102711}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4713395182999494641}
+  m_Father: {fileID: 9163669183965226287}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &293828250786952427
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 887132094997503387}
+    m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 8b73fc785d137c74bb974c2a6853da1d,
+        type: 3}
+      propertyPath: m_Name
+      value: Puzzle.Sphere_Parts
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 8b73fc785d137c74bb974c2a6853da1d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 8b73fc785d137c74bb974c2a6853da1d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 8b73fc785d137c74bb974c2a6853da1d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 8b73fc785d137c74bb974c2a6853da1d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 8b73fc785d137c74bb974c2a6853da1d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 8b73fc785d137c74bb974c2a6853da1d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 8b73fc785d137c74bb974c2a6853da1d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 8b73fc785d137c74bb974c2a6853da1d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 8b73fc785d137c74bb974c2a6853da1d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 8b73fc785d137c74bb974c2a6853da1d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 8b73fc785d137c74bb974c2a6853da1d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 8b73fc785d137c74bb974c2a6853da1d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.98415506
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8b73fc785d137c74bb974c2a6853da1d, type: 3}
+--- !u!1 &8588943015839411682 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 8b73fc785d137c74bb974c2a6853da1d,
+    type: 3}
+  m_PrefabInstance: {fileID: 293828250786952427}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4713395182999494641 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 8b73fc785d137c74bb974c2a6853da1d,
+    type: 3}
+  m_PrefabInstance: {fileID: 293828250786952427}
+  m_PrefabAsset: {fileID: 0}

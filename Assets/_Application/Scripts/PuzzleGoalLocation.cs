@@ -26,12 +26,15 @@ public class PuzzleGoalLocation : MonoBehaviour
             Vector3 targetDir = goalLocation.transform.position - transform.position;
             float angle = Vector3.Angle(targetDir, transform.up);
 
+            // AngleCheck Debug
+            /*
             if (angle < snapRotDistance)
                 print("close");
+            */
 
             if ((transform.position - goalLocation.transform.position).sqrMagnitude <= (snapPosDistance * snapPosDistance) && angle < snapRotDistance)
             {
-                Debug.Log("Matched " + this.name + " Removing Mapitulatioin controls");
+                Debug.Log(this.name + " Has been placed in the correct position");
 
                 // Snap transforms
                 transform.position = goalLocation.transform.position;
@@ -50,8 +53,6 @@ public class PuzzleGoalLocation : MonoBehaviour
                 this.transform.SetParent(goalLocation.transform);
                 isAtGoal = true;
             }
-            
         }
-       // Debug.Log(goalLocation.name);
     }
 }

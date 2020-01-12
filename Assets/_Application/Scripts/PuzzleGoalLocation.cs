@@ -31,32 +31,26 @@ public class PuzzleGoalLocation : MonoBehaviour
 
             if ((transform.position - goalLocation.transform.position).sqrMagnitude <= (snapPosDistance * snapPosDistance) && angle < snapRotDistance)
             {
-
-                    Debug.Log("Matched " + this.name + " Removing Mapitulatioin controls");
-
-                    transform.position = goalLocation.transform.position;
-                    transform.rotation = goalLocation.transform.rotation;
-                    var manip = this.gameObject.GetComponent<ManipulationHandler>();
-                    Destroy(manip);
-                    var nearint = this.gameObject.GetComponent<NearInteractionGrabbable>();
-                    Destroy(nearint);
-                    isAtGoal = true;
-            }
-            
-            
-            /*
-            if ((transform.position - goalLocation.transform.position).sqrMagnitude <= (snapPosDistance * snapPosDistance) && (transform.eulerAngles - goalLocation.transform.eulerAngles).sqrMagnitude <= (snapRotDistance + snapRotDistance))
-            {
                 Debug.Log("Matched " + this.name + " Removing Mapitulatioin controls");
 
+                // Snap transforms
                 transform.position = goalLocation.transform.position;
+                transform.rotation = goalLocation.transform.rotation;
+
+                // Remove unneeded components
                 var manip = this.gameObject.GetComponent<ManipulationHandler>();
                 Destroy(manip);
                 var nearint = this.gameObject.GetComponent<NearInteractionGrabbable>();
                 Destroy(nearint);
+                var meshFilter = goalLocation.gameObject.GetComponent<MeshFilter>();
+                Destroy(meshFilter);
+                var meshRenderer = goalLocation.gameObject.GetComponent<MeshRenderer>();
+                Destroy(meshRenderer);
+
+                this.transform.SetParent(goalLocation.transform);
                 isAtGoal = true;
             }
-            */
+            
         }
        // Debug.Log(goalLocation.name);
     }

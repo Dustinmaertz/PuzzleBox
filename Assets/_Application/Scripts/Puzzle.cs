@@ -10,12 +10,16 @@ public class Puzzle : MonoBehaviour
 {
     public GameObject puzzleWhole;
     public GameObject puzzleParts;
+    public Material ghostMaterial;
     public Transform puzzleSpawn;
     public Transform puzzlePartsGoal;
     public Transform puzzleGoalLocation;
     public Transform collectionSpawn;
     public GridObjectCollection puzzleCollection;
     public List<Transform> puzzleGoalTransform = new List<Transform>();
+    public Vector3 colliderSize;
+
+    public bool flipSpawnDir = false;
 
     void Start()
     {
@@ -24,6 +28,8 @@ public class Puzzle : MonoBehaviour
 
         // Spawn Ghost version of puzzle object
         CreatePuzzleGhost();
+
+        SetupPuzzleManip();
     }
 
     public void SpawnPuzzleParts()
@@ -34,11 +40,16 @@ public class Puzzle : MonoBehaviour
             // Instatiate clone of puzzle part
             Instantiate(child, collectionSpawn);
 
+            var meshRenderer = child.gameObject.GetComponent<MeshRenderer>();
+            meshRenderer.material = ghostMaterial;
+
             // Remove mesh filter and renderer from puzzle goal transforms 
+            /*
             var meshFilter = child.gameObject.GetComponent<MeshFilter>();
             Destroy(meshFilter);
             var meshRenderer = child.gameObject.GetComponent<MeshRenderer>();
             Destroy(meshRenderer);
+            */
         }
 
         // Add manipulation handeler and mesh collider to puzzle pieces.
@@ -56,11 +67,23 @@ public class Puzzle : MonoBehaviour
 
         // Update collection
         puzzleCollection.UpdateCollection();
+
     }
 
     public void CreatePuzzleGhost()
     {
-        Instantiate(puzzleWhole, puzzleSpawn);
+        //Instantiate(puzzleWhole, puzzleSpawn);
         puzzleGoalLocation.position = puzzleSpawn.position;
+        puzzleGoalLocation.rotation = puzzleSpawn.rotation;
+    }
+
+    public void SetupPuzzleManip()
+    {
+        puzzleParts.AddComponent<BoxCollider>();
+        puzzleParts.AddComponent<ManipulationHandler>();
+        puzzleParts.AddComponent<NearInteractionGrabbable>();
+
+        var col = puzzleParts.GetComponent<BoxCollider>();
+        col.size = colliderSize;
     }
 }

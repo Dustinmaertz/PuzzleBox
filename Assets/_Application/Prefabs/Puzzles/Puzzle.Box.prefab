@@ -108,10 +108,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzleWhole: {fileID: -927199367670048503, guid: c25558418b97a6e4c9f36e49e2265a09,
     type: 3}
-  puzzleParts: {fileID: -927199367670048503, guid: eb01f18947bee8240b95b1e9abeeb22c,
-    type: 3}
+  puzzleParts: {fileID: 5948229120018410978}
   puzzleSpawn: {fileID: 0}
-  puzzlePartsGoal: {fileID: 1419334331}
+  puzzlePartsGoal: {fileID: 7266279850015596529}
+  puzzleGoalLocation: {fileID: 8557597627823719638}
   collectionSpawn: {fileID: 0}
   puzzleCollection: {fileID: 0}
   puzzleGoalTransform: []
@@ -122,6 +122,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8557597627823719638}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: eb01f18947bee8240b95b1e9abeeb22c,
+        type: 3}
+      propertyPath: m_Name
+      value: Puzzle.Box_Parts
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: eb01f18947bee8240b95b1e9abeeb22c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -177,13 +182,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: eb01f18947bee8240b95b1e9abeeb22c,
-        type: 3}
-      propertyPath: m_Name
-      value: Puzzle.Box_Parts
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb01f18947bee8240b95b1e9abeeb22c, type: 3}
+--- !u!1 &5948229120018410978 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: eb01f18947bee8240b95b1e9abeeb22c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2426797847926781163}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7266279850015596529 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: eb01f18947bee8240b95b1e9abeeb22c,

@@ -82,6 +82,12 @@ public class Puzzle : MonoBehaviour
                 child.transform.rotation = Random.rotation;
             }
 
+            if (!flipSpawnDir)
+            {
+                var flippedAngle = child.transform.eulerAngles + 180f * Vector3.up;
+                child.transform.eulerAngles = flippedAngle;
+            }
+
         }
         // Update collection
         puzzleCollection.UpdateCollection();
@@ -101,9 +107,9 @@ public class Puzzle : MonoBehaviour
         puzzleParts.AddComponent<NearInteractionGrabbable>();
 
         // Configure Manipulation Handeler settings
-        var manip = puzzleParts.gameObject.GetComponent<ManipulationHandler>();
+        var manip = puzzleParts.gameObject.GetComponent<ManipulationHandler>() as ManipulationHandler;
         manip.ManipulationType = ManipulationHandler.HandMovementType.OneHandedOnly;
-        manip.TwoHandedManipulationType = ManipulationHandler.TwoHandedManipulation.MoveRotate;
+        //manip.TwoHandedManipulationType = ManipulationHandler.TwoHandedManipulation.MoveRotate;
         var near = puzzleParts.gameObject.GetComponent<NearInteractionGrabbable>();
         near.ShowTetherWhenManipulating = true;
 
@@ -134,18 +140,13 @@ public class Puzzle : MonoBehaviour
     public void ResetPuzzle()
     {
         GatherReferences();
-        // Collect puzzle part goal locations
         SpawnPuzzleParts();
-
         SetupPuzzleManip();
-        // Update collection
-        //puzzleCollection.UpdateCollection();
     }
 
     public void CleanPuzzles()
     {
         GatherReferences();
-        // needs to be changed to a game object 
         foreach (Transform child in collectionSpawn)
         {
             Destroy(child.gameObject);

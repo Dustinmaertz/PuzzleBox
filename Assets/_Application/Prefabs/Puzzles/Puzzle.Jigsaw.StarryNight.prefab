@@ -1,0 +1,169 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3340223185272287678
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5595702597434402450}
+  m_Layer: 0
+  m_Name: PuzzleGoalLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5595702597434402450
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3340223185272287678}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4238639512003740035}
+  m_Father: {fileID: 4522652787587325478}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7687908427059655557
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4522652787587325478}
+  - component: {fileID: 7828654647204199910}
+  m_Layer: 0
+  m_Name: Puzzle.Jigsaw.StarryNight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4522652787587325478
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7687908427059655557}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1.0161, z: 1}
+  m_Children:
+  - {fileID: 5595702597434402450}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7828654647204199910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7687908427059655557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eaacbb349cc80640a49887a2b3f048d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzleParts: {fileID: -927199367670048503, guid: 1333245e9de4b1744bcecd2d27f43b14,
+    type: 3}
+  ghostMaterial: {fileID: 2100000, guid: cc0f9c9aa3b651f4d8ad41c367eceacc, type: 2}
+  puzzleSpawn: {fileID: 0}
+  puzzlePartsGoal: {fileID: 0}
+  puzzleGoalLocation: {fileID: 5595702597434402450}
+  collectionSpawn: {fileID: 0}
+  puzzleCollection: {fileID: 0}
+  puzzleGoalTransform: []
+  colliderSize: {x: 0.2, y: 0.2, z: 0.2}
+  flipSpawnDir: 1
+  randomizePartDir: 1
+--- !u!1001 &9198629603389909657
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5595702597434402450}
+    m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 1333245e9de4b1744bcecd2d27f43b14,
+        type: 3}
+      propertyPath: m_Name
+      value: Puzzle.Jigsaw.StarryNight
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 1333245e9de4b1744bcecd2d27f43b14,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 1333245e9de4b1744bcecd2d27f43b14,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 1333245e9de4b1744bcecd2d27f43b14,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 1333245e9de4b1744bcecd2d27f43b14,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 1333245e9de4b1744bcecd2d27f43b14,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 1333245e9de4b1744bcecd2d27f43b14,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 1333245e9de4b1744bcecd2d27f43b14,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 1333245e9de4b1744bcecd2d27f43b14,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 1333245e9de4b1744bcecd2d27f43b14,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 1333245e9de4b1744bcecd2d27f43b14,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 1333245e9de4b1744bcecd2d27f43b14,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 1333245e9de4b1744bcecd2d27f43b14,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.98415506
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1333245e9de4b1744bcecd2d27f43b14, type: 3}
+--- !u!4 &4238639512003740035 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 1333245e9de4b1744bcecd2d27f43b14,
+    type: 3}
+  m_PrefabInstance: {fileID: 9198629603389909657}
+  m_PrefabAsset: {fileID: 0}

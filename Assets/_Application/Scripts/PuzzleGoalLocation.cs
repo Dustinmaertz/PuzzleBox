@@ -17,12 +17,19 @@ public class PuzzleGoalLocation : MonoBehaviour
         var name = this.name;
         name = name.Remove(name.Length - 7);
         goalLocation = GameObject.Find(name);
+
+        GameObject goalLoc = GameObject.Find(name);
+        goalLocation = goalLoc;
+
+        //Transform puzzleSpwn = GameObject.Find("PuzzleSpawn").transform;
+        //puzzleSpawn = puzzleSpwn;
     }
 
     void Update()
     {
         if (!isAtGoal)
         {
+            GetGoalLocation();
             Vector3 targetDir = goalLocation.transform.position - transform.position;
             float angle = Vector3.Angle(targetDir, transform.up);
 

@@ -8,7 +8,6 @@ using Microsoft.MixedReality.Toolkit.Utilities;
 
 public class Puzzle : MonoBehaviour
 {
-    public GameObject puzzleWhole;
     public GameObject puzzleParts;
     public Material ghostMaterial;
     public Transform puzzleSpawn;
@@ -24,10 +23,25 @@ public class Puzzle : MonoBehaviour
 
     void Start()
     {
+        GatherReferences();
         // Collect puzzle part goal locations
         SpawnPuzzleParts();
 
         SetupPuzzleManip();
+    }
+
+    public void GatherReferences()
+    {
+        // Add puzzle spawn transform
+        Transform puzzleSpwn = GameObject.Find("PuzzleSpawn").transform;
+        puzzleSpawn = puzzleSpwn;
+        // Add Puzzle grid collection
+        GridObjectCollection gridColl = GameObject.Find("PuzzleCollection").GetComponent<GridObjectCollection>();
+        puzzleCollection = gridColl;
+        // Puzzle grid collection transform
+        Transform gridColTrans = GameObject.Find("PuzzleCollection").GetComponent<Transform>();
+        collectionSpawn = gridColTrans;
+
     }
 
     public void SpawnPuzzleParts()
@@ -42,8 +56,9 @@ public class Puzzle : MonoBehaviour
             meshRenderer.material = ghostMaterial;
         }
 
+
         // Add manipulation handeler and mesh collider to puzzle pieces.
-        foreach (Transform child in puzzleCollection.transform)
+        foreach (Transform child in collectionSpawn.transform)
         {
             // Add components
             child.gameObject.AddComponent<BoxCollider>();
@@ -118,18 +133,22 @@ public class Puzzle : MonoBehaviour
 
     public void ResetPuzzle()
     {
+        GatherReferences();
         // Collect puzzle part goal locations
         SpawnPuzzleParts();
 
         SetupPuzzleManip();
+        // Update collection
+        puzzleCollection.UpdateCollection();
     }
 
     public void CleanPuzzles()
     {
+        GatherReferences();
         // needs to be changed to a game object 
-        foreach (GameObject child in collectionSpawn)
+        foreach (Transform child in collectionSpawn)
         {
-           // child.gameObject.SetActive = false;
+            Destroy(child.gameObject);
         }
 
     }

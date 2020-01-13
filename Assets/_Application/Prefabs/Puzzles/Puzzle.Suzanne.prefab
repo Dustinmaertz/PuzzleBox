@@ -44,17 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eaacbb349cc80640a49887a2b3f048d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleWhole: {fileID: -927199367670048503, guid: 95273916116a3ce4789322d8a59f9c9e,
-    type: 3}
   puzzleParts: {fileID: 5673172699746623318}
-  ghostMaterial: {fileID: 0}
+  ghostMaterial: {fileID: 2100000, guid: cc0f9c9aa3b651f4d8ad41c367eceacc, type: 2}
   puzzleSpawn: {fileID: 0}
   puzzlePartsGoal: {fileID: 8710086318518021445}
   puzzleGoalLocation: {fileID: 3625693927283603376}
   collectionSpawn: {fileID: 0}
   puzzleCollection: {fileID: 0}
-  puzzleGoalTransform: []
-  colliderSize: {x: 0, y: 0, z: 0}
+  puzzleGoalTransform:
+  - {fileID: 0}
+  - {fileID: 0}
+  colliderSize: {x: 0.2, y: 0.2, z: 0.2}
   flipSpawnDir: 0
   randomizePartDir: 0
 --- !u!1 &5885144773301690524

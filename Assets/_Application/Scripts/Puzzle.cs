@@ -139,7 +139,7 @@ public class Puzzle : MonoBehaviour
 
         SetupPuzzleManip();
         // Update collection
-        puzzleCollection.UpdateCollection();
+        //puzzleCollection.UpdateCollection();
     }
 
     public void CleanPuzzles()

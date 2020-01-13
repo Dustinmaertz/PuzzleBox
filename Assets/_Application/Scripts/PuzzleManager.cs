@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Microsoft.MixedReality.Toolkit.UI;
+using Microsoft.MixedReality.Toolkit.Input;
+using Microsoft.MixedReality.Toolkit.Utilities;
 
 public class PuzzleManager : MonoBehaviour
 {
@@ -39,5 +42,12 @@ public class PuzzleManager : MonoBehaviour
     {
         currentPuzzleID = index;
         ResetPuzzle();
+        UpdatePuzzleCollection();
+
+    }
+
+    public void UpdatePuzzleCollection()
+    {
+        collectionSpawn.GetComponent<GridObjectCollection>().UpdateCollection();
     }
 }

@@ -10,7 +10,7 @@ Material:
   m_Name: BrickConcretePillars
   m_Shader: {fileID: 4800000, guid: 5bdea20278144b11916d77503ba1467a, type: 3}
   m_ShaderKeywords: _CHANNEL_MAP _DIRECTIONAL_LIGHT _ENVIRONMENT_COLORING _HOVER_LIGHT
-    _LOCAL_SPACE_TRIPLANAR_MAPPING _NORMAL_MAP _SPECULAR_HIGHLIGHTS _SPHERICAL_HARMONICS
+    _LOCAL_SPACE_TRIPLANAR_MAPPING _NORMAL_MAP _REFLECTIONS _SPECULAR_HIGHLIGHTS _SPHERICAL_HARMONICS
     _TRIPLANAR_MAPPING
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
@@ -52,7 +52,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 202fe5ee319083c42b35b2aea2967e94, type: 3}
-        m_Scale: {x: 0.1, y: 0.1}
+        m_Scale: {x: 0.2, y: 0.2}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -129,7 +129,7 @@ Material:
     - _ProximityLight: 0
     - _ProximityLightSubtractive: 0
     - _ProximityLightTwoSided: 0
-    - _Reflections: 0
+    - _Reflections: 1
     - _Refraction: 0
     - _RefractiveIndex: 0
     - _RenderQueueOverride: -1
@@ -147,7 +147,7 @@ Material:
     - _StencilComparison: 0
     - _StencilOperation: 0
     - _StencilReference: 0
-    - _TriplanarMappingBlendSharpness: 16
+    - _TriplanarMappingBlendSharpness: 14.23
     - _UVSec: 0
     - _VertexColors: 0
     - _VertexExtrusion: 0

@@ -9,7 +9,7 @@ public class PuzzleGoalLocation : MonoBehaviour
 {
     public GameObject goalLocation;
     public float snapPosDistance = 0.05f;
-    public float snapRotDistance = 20.0f;
+    public float snapRotDistance = 15.0f;
     public bool isAtGoal = false;
 
     public void GetGoalLocation()

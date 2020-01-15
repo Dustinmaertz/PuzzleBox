@@ -17,6 +17,9 @@ public class Puzzle : MonoBehaviour
     public GridObjectCollection puzzleCollection;
     public List<Transform> puzzleGoalTransform = new List<Transform>();
     public Vector3 colliderSize;
+    public GameObject WidgetPos;
+    public GameObject WidgetRot;
+    public GameObject WidgetRotSmall;
 
     public bool flipSpawnDir = false;
     public bool randomizePartDir = false;
@@ -51,7 +54,7 @@ public class Puzzle : MonoBehaviour
         {
             // Instatiate clone of puzzle part
             Instantiate(child, collectionSpawn);
-
+            Instantiate(WidgetRotSmall, this.transform);
             var meshRenderer = child.gameObject.GetComponent<Renderer>();
             meshRenderer.material = ghostMaterial;
         }
@@ -75,6 +78,8 @@ public class Puzzle : MonoBehaviour
             // Get puzzle part goal location
             var  puzzleGoal = child.gameObject.GetComponent<PuzzleGoalLocation>();
             puzzleGoal.GetGoalLocation();
+
+            Instantiate(WidgetPos, child.transform);
 
             // Check if random dir is checked
             if(!randomizePartDir)
@@ -151,6 +156,11 @@ public class Puzzle : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+
+    }
+
+    public void SpawnPuzzleWidgets()
+    {
 
     }
 }

@@ -13,10 +13,16 @@ public class PuzzleManager : MonoBehaviour
     public Transform puzzleSpawn;
 
     private GameObject currentPuzzle;
+    private PuzzleTimer puzzleTimer;
+    private bool puzzleActive = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        // Get reference for puzzle timer
+        puzzleTimer = GameObject.Find("PuzzleTimer").GetComponent<PuzzleTimer>();
+
+        // Spawn puzzles
         SpawnPuzzle();
     }
 

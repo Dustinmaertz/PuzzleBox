@@ -9,8 +9,10 @@ public class PuzzleGoalLocation : MonoBehaviour
 {
     public GameObject goalLocation;
     public float snapPosDistance = 0.05f;
-    public float snapRotDistance = 15.0f;
+    public float snapRotDistance = 20.0f;
+    public float releaseTime = 1.0f;
     public bool isAtGoal = false;
+    public bool isGrabbed = false;
 
     public void GetGoalLocation()
     {
@@ -20,46 +22,59 @@ public class PuzzleGoalLocation : MonoBehaviour
 
         GameObject goalLoc = GameObject.Find(name);
         goalLocation = goalLoc;
-
-        //Transform puzzleSpwn = GameObject.Find("PuzzleSpawn").transform;
-        //puzzleSpawn = puzzleSpwn;
     }
 
     void Update()
     {
-        if (!isAtGoal)
+        // Check to see if puzzle is grabbed by the user.
+        if (isGrabbed == true)
         {
-            GetGoalLocation();
-            Vector3 targetDir = goalLocation.transform.position - transform.position;
-            float angle = Vector3.Angle(targetDir, transform.up);
-
-            // AngleCheck Debug
-            /*
-            if (angle < snapRotDistance)
-                print("close");
-            */
-
-            if ((transform.position - goalLocation.transform.position).sqrMagnitude <= (snapPosDistance * snapPosDistance) && angle < snapRotDistance)
+            // Check if puzzle is at goal location
+            if (!isAtGoal)
             {
-                Debug.Log(this.name + " Has been placed in the correct position");
 
-                // Snap transforms
-                transform.position = goalLocation.transform.position;
-                transform.rotation = goalLocation.transform.rotation;
+                GetGoalLocation();
+                Vector3 targetDir = goalLocation.transform.position - transform.position;
+                float angle = Vector3.Angle(targetDir, transform.up);
 
-                // Remove unneeded components
-                var manip = this.gameObject.GetComponent<ManipulationHandler>();
-                Destroy(manip);
-                var nearint = this.gameObject.GetComponent<NearInteractionGrabbable>();
-                Destroy(nearint);
-                var meshFilter = goalLocation.gameObject.GetComponent<MeshFilter>();
-                Destroy(meshFilter);
-                var meshRenderer = goalLocation.gameObject.GetComponent<MeshRenderer>();
-                Destroy(meshRenderer);
+                // AngleCheck Debug
+                /*
+                if (angle < snapRotDistance)
+                    print("close");
+                */
 
-                this.transform.SetParent(goalLocation.transform);
-                isAtGoal = true;
+                if ((transform.position - goalLocation.transform.position).sqrMagnitude <= (snapPosDistance * snapPosDistance) && angle < snapRotDistance)
+                {
+                    Debug.Log(this.name + " Has been placed in the correct position");
+
+                    // Snap transforms
+                    transform.position = goalLocation.transform.position;
+                    transform.rotation = goalLocation.transform.rotation;
+
+                    // Remove unneeded components
+                    var manip = this.gameObject.GetComponent<ManipulationHandler>();
+                    Destroy(manip);
+                    var nearint = this.gameObject.GetComponent<NearInteractionGrabbable>();
+                    Destroy(nearint);
+                    var meshFilter = goalLocation.gameObject.GetComponent<MeshFilter>();
+                    Destroy(meshFilter);
+                    var meshRenderer = goalLocation.gameObject.GetComponent<MeshRenderer>();
+                    Destroy(meshRenderer);
+
+                    this.transform.SetParent(goalLocation.transform);
+                    isAtGoal = true;
+                }
             }
         }
+    }
+
+    public void GrabStart()
+    {
+        isGrabbed = true; 
+    }
+
+    public void GrabEnd()
+    {
+        isGrabbed = false; 
     }
 }

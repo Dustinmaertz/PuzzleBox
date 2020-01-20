@@ -75,6 +75,10 @@ public class Puzzle : MonoBehaviour
             var near = child.gameObject.GetComponent<NearInteractionGrabbable>();
             near.ShowTetherWhenManipulating = true;
 
+            //Add Manipulation handeler events to track if a part is grabbed to start goal location script
+            manip.OnManipulationStarted.AddListener((ManipulationEventData) => child.GetComponent<PuzzleGoalLocation>().isGrabbed = true);
+            manip.OnManipulationEnded.AddListener((ManipulationEventData) => child.GetComponent<PuzzleGoalLocation>().isGrabbed = false);
+
             // Get puzzle part goal location
             var  puzzleGoal = child.gameObject.GetComponent<PuzzleGoalLocation>();
             puzzleGoal.GetGoalLocation();
@@ -114,9 +118,9 @@ public class Puzzle : MonoBehaviour
         // Configure Manipulation Handeler settings
         var manip = puzzleParts.gameObject.GetComponent<ManipulationHandler>() as ManipulationHandler;
         manip.ManipulationType = ManipulationHandler.HandMovementType.OneHandedOnly;
-        //manip.TwoHandedManipulationType = ManipulationHandler.TwoHandedManipulation.MoveRotate;
         var near = puzzleParts.gameObject.GetComponent<NearInteractionGrabbable>();
         near.ShowTetherWhenManipulating = true;
+
 
         // Get and Set collider size
         var col = puzzleParts.GetComponent<BoxCollider>();

@@ -9,16 +9,37 @@ public class PuzzleTimer : MonoBehaviour
     float theTime;
     public float speed = 1;
 
-    void Start()
-    {
-        //TextMeshPro text = GetComponent<TextMeshPro>;
-    }
+    private bool isPaused = false;
 
     void Update()
+    {
+        if(isPaused == false)
+        {
+            UpdateTimer();
+        }
+    }
+
+    void UpdateTimer()
     {
         theTime += Time.deltaTime * speed;
         string minutes = Mathf.Floor((theTime % 3600) / 60).ToString("00");
         string seconds = (theTime % 60).ToString("00");
         text.text = (minutes + ":" + seconds);
+    }
+
+    public void PauseTimer()
+    {
+        isPaused = true;
+    }
+
+    public void UnPauseTimer()
+    {
+        isPaused = false;
+    }
+
+    public void ResetTimer()
+    {
+        PauseTimer();
+        theTime = 0.0f;
     }
 }

@@ -23,14 +23,15 @@ public class Puzzle : MonoBehaviour
 
     public bool flipSpawnDir = false;
     public bool randomizePartDir = false;
+    public PuzzleManager puzzleManager;
 
     void Start()
     {
         GatherReferences();
-        // Collect puzzle part goal locations
         SpawnPuzzleParts();
-
         SetupPuzzleManip();
+
+        
     }
 
     public void GatherReferences()
@@ -44,19 +45,23 @@ public class Puzzle : MonoBehaviour
         // Puzzle grid collection transform
         Transform gridColTrans = GameObject.Find("PuzzleCollection").GetComponent<Transform>();
         collectionSpawn = gridColTrans;
-
     }
 
     public void SpawnPuzzleParts()
     {
+        PuzzleManager puzMng = GameObject.Find("GameManagers").GetComponent<PuzzleManager>();
+        puzzleManager = puzMng;
+
+        puzzleManager.puzzlePartCount = 0;
         // Clone puzzle pieces for goal transforms
         foreach (Transform child in puzzleParts.transform)
         {
             // Instatiate clone of puzzle part
             Instantiate(child, collectionSpawn);
-            Instantiate(WidgetRotSmall, this.transform);
+            SpawnPuzzleWidgets();
             var meshRenderer = child.gameObject.GetComponent<Renderer>();
             meshRenderer.material = ghostMaterial;
+            puzzleManager.puzzlePartCount++;
         }
 
 
@@ -160,11 +165,10 @@ public class Puzzle : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-
     }
 
     public void SpawnPuzzleWidgets()
     {
-
+        Instantiate(WidgetRotSmall, this.transform);
     }
 }

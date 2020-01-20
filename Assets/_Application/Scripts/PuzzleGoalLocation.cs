@@ -14,8 +14,18 @@ public class PuzzleGoalLocation : MonoBehaviour
     public bool isAtGoal = false;
     public bool isGrabbed = false;
 
+    public PuzzleManager puzzleManager;
+
+    void Awake()
+    {
+        PuzzleManager puzMng = GameObject.Find("GameManagers").GetComponent<PuzzleManager>();
+        puzzleManager = puzMng;
+
+    }
+
     public void GetGoalLocation()
     {
+
         var name = this.name;
         name = name.Remove(name.Length - 7);
         goalLocation = GameObject.Find(name);
@@ -63,6 +73,8 @@ public class PuzzleGoalLocation : MonoBehaviour
 
                     this.transform.SetParent(goalLocation.transform);
                     isAtGoal = true;
+                    puzzleManager.puzzlePartAtGoal++;
+                    puzzleManager.UpdatePuzzlePartText();
                 }
             }
         }

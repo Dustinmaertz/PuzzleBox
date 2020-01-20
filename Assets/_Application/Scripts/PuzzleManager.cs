@@ -12,7 +12,14 @@ public class PuzzleManager : MonoBehaviour
     public GameObject[] puzzles;
     public GameObject collectionSpawn;
     public Transform puzzleSpawn;
+
     public TextMeshPro puzzlePartText;
+    public TextMeshPro textPuzzleComplete;
+
+    public AudioClip audioPuzzleGrab;
+    public AudioClip audioPuzzleRelease;
+    public AudioClip audioPuzzleGoal;
+    public AudioClip audioPuzzleComplete;
 
     private GameObject currentPuzzle;
     private PuzzleTimer puzzleTimer;
@@ -50,6 +57,7 @@ public class PuzzleManager : MonoBehaviour
         SpawnPuzzle();
         puzzlePartAtGoal = 0;
         UpdatePuzzlePartText();
+        ClearCompleteText();
     }
 
     public void ChangePuzzle(int index)
@@ -71,4 +79,22 @@ public class PuzzleManager : MonoBehaviour
     {
         puzzlePartText.text = (puzzlePartAtGoal + " / " + puzzlePartCount);
     }
+
+    public void CheckPuzzleComplete()
+    {
+        if(puzzlePartCount == puzzlePartAtGoal)
+        {
+            textPuzzleComplete.text = "PUZZLE COMPLETE";
+            var audio = this.gameObject.GetComponent<AudioSource>();
+
+            audio.PlayOneShot(audioPuzzleComplete);
+        }
+    }
+
+    public void ClearCompleteText()
+    {
+            textPuzzleComplete.text = "";
+        puzzleTimer.ResetTimer();
+    }
+
 }

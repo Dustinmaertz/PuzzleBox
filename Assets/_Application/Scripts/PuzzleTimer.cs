@@ -8,14 +8,18 @@ public class PuzzleTimer : MonoBehaviour
     public TextMeshPro text;
     float theTime;
     public float speed = 1;
+    public bool isPlaying = false;
 
     private bool isPaused = false;
 
     void Update()
     {
-        if(isPaused == false)
+        if (isPlaying == true)
         {
-            UpdateTimer();
+            if (isPaused == false)
+            {
+                UpdateTimer();
+            }
         }
     }
 
@@ -41,5 +45,10 @@ public class PuzzleTimer : MonoBehaviour
     {
         PauseTimer();
         theTime = 0.0f;
+    }
+
+    public void StartTimer()
+    {
+        isPlaying = true;
     }
 }

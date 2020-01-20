@@ -73,8 +73,15 @@ public class PuzzleGoalLocation : MonoBehaviour
 
                     this.transform.SetParent(goalLocation.transform);
                     isAtGoal = true;
+
+                    // Play puzzle goal audio
+                    var audio = this.gameObject.GetComponent<AudioSource>();
+                    audio.PlayOneShot(puzzleManager.audioPuzzleGoal);
+
                     puzzleManager.puzzlePartAtGoal++;
                     puzzleManager.UpdatePuzzlePartText();
+                    puzzleManager.CheckPuzzleComplete();
+
                 }
             }
         }
@@ -82,6 +89,7 @@ public class PuzzleGoalLocation : MonoBehaviour
 
     public void GrabStart()
     {
+
         isGrabbed = true; 
     }
 
@@ -89,4 +97,6 @@ public class PuzzleGoalLocation : MonoBehaviour
     {
         isGrabbed = false; 
     }
+
+    
 }

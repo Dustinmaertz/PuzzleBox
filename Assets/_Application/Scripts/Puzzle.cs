@@ -73,6 +73,7 @@ public class Puzzle : MonoBehaviour
             child.gameObject.AddComponent<ManipulationHandler>();
             child.gameObject.AddComponent<NearInteractionGrabbable>();
             child.gameObject.AddComponent<PuzzleGoalLocation>();
+            child.gameObject.AddComponent<AudioSource>();
 
             // Configure Manipulation Handeler settings
             var manip = child.gameObject.GetComponent<ManipulationHandler>();
@@ -83,6 +84,9 @@ public class Puzzle : MonoBehaviour
             //Add Manipulation handeler events to track if a part is grabbed to start goal location script
             manip.OnManipulationStarted.AddListener((ManipulationEventData) => child.GetComponent<PuzzleGoalLocation>().isGrabbed = true);
             manip.OnManipulationEnded.AddListener((ManipulationEventData) => child.GetComponent<PuzzleGoalLocation>().isGrabbed = false);
+            // Add audio source to chunk
+            manip.OnManipulationStarted.AddListener((ManipulationEventData) => child.GetComponent<AudioSource>().PlayOneShot(puzzleManager.audioPuzzleGrab));
+            manip.OnManipulationEnded.AddListener((ManipulationEventData) => child.GetComponent<AudioSource>().PlayOneShot(puzzleManager.audioPuzzleRelease));
 
             // Get puzzle part goal location
             var  puzzleGoal = child.gameObject.GetComponent<PuzzleGoalLocation>();
@@ -119,6 +123,9 @@ public class Puzzle : MonoBehaviour
         puzzleParts.AddComponent<BoxCollider>();
         puzzleParts.AddComponent<ManipulationHandler>();
         puzzleParts.AddComponent<NearInteractionGrabbable>();
+        puzzleParts.AddComponent<AudioSource>();
+
+        var sound = GetComponent<AudioSource>();
 
         // Configure Manipulation Handeler settings
         var manip = puzzleParts.gameObject.GetComponent<ManipulationHandler>() as ManipulationHandler;

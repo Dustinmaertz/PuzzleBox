@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 241406238975005658}
   - component: {fileID: 2290802476676548462}
   - component: {fileID: 7952867615074134311}
-  - component: {fileID: 9058947213260521425}
   - component: {fileID: 1714140289565219707}
   - component: {fileID: 5510371160673305296}
   - component: {fileID: 6752816039953066762}
+  - component: {fileID: 5394251012792853751}
   m_Layer: 0
   m_Name: Widget.HDRISphere
   m_TagString: Untagged
@@ -81,19 +81,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &9058947213260521425
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3266892061721804085}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1714140289565219707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,11 +139,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventsToReceive: 0
   debounceThreshold: 0.01
-  localForward: {x: 0, y: 0, z: 1}
+  localForward: {x: 0, y: 0, z: -1}
   localUp: {x: 0, y: 1, z: 0}
-  localCenter: {x: 0, y: 0, z: 0}
-  bounds: {x: 0, y: 0}
-  touchableCollider: {fileID: 9058947213260521425}
+  localCenter: {x: 0, y: 0, z: -0.5}
+  bounds: {x: 1, y: 1}
+  touchableCollider: {fileID: 5394251012792853751}
 --- !u!114 &6752816039953066762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,3 +182,16 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Microsoft.MixedReality.Toolkit.UI.TouchEvent, Microsoft.MixedReality.Toolkit.SDK,
       Version=2.2.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!65 &5394251012792853751
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3266892061721804085}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

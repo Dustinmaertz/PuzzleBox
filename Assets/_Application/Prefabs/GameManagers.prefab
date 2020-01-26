@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5922597292862629505}
   - component: {fileID: 5922597292862629510}
+  - component: {fileID: 1716629927}
+  - component: {fileID: 1716629925}
+  - component: {fileID: 1716629926}
   m_Layer: 0
   m_Name: GameManagers
   m_TagString: Untagged
@@ -49,5 +52,148 @@ MonoBehaviour:
   - {fileID: 3123452872457259148, guid: 33b935d118bb95241a7f152852faae2c, type: 3}
   - {fileID: 6058626110170176760, guid: 23acd70ad0ebd0f438eaf0b47e54fa1f, type: 3}
   - {fileID: 5896816743023186369, guid: e4483852c979be4498a3a799952ce58f, type: 3}
+  - {fileID: 5896816743023186369, guid: e4483852c979be4498a3a799952ce58f, type: 3}
   collectionSpawn: {fileID: 0}
   puzzleSpawn: {fileID: 0}
+  puzzlePartText: {fileID: 0}
+  textPuzzleComplete: {fileID: 0}
+  audioPuzzleGrab: {fileID: 8300000, guid: 6ca49748b001c30479097d0e248d716e, type: 3}
+  audioPuzzleRelease: {fileID: 8300000, guid: a0efd56be12666148adf18d9684988d0, type: 3}
+  audioPuzzleGoal: {fileID: 8300000, guid: 04bafcffa71fa114eb5cda7f7b9399ed, type: 3}
+  audioPuzzleComplete: {fileID: 8300000, guid: a25848418f5f0a9468a3d1e70962b09b, type: 3}
+  puzzlePartCount: 0
+  puzzlePartAtGoal: 0
+--- !u!82 &1716629927
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5922597292862629511}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1716629925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5922597292862629511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5ec4552ce4ae8439e7df07c976a09e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dirLight: {fileID: 0}
+  dirLightPrefab: {fileID: 0}
+  dirLightSpawn: {fileID: 0}
+  cubemap: {fileID: 0}
+  hdriSpherePrefab: {fileID: 3266892061721804085, guid: a1770240a26aa1344a3db1741282a876,
+    type: 3}
+  hdriTextures: []
+  hdriMaterials: []
+--- !u!114 &1716629926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5922597292862629511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42cd5f492d9efa347a3f130a30906223, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHandMaterialID: 0
+  handMaterial:
+  - {fileID: 2100000, guid: b6398505fddf61240977ff2c0ac50330, type: 2}
+  - {fileID: 2100000, guid: 33a1397585128af42b5acf865f7d5453, type: 2}
+  HandMeshPrefab: {fileID: 1887883006053652, guid: f3de47b952a5c1b4caf09d0fbce1c038,
+    type: 3}

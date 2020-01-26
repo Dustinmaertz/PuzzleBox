@@ -99,8 +99,8 @@ Material:
     - _EnableNormalMap: 0
     - _EnableProximityLightColorOverride: 0
     - _EnableTriplanarMapping: 0
-    - _EnvironmentColorIntensity: 0.076
-    - _EnvironmentColorThreshold: 2.34
+    - _EnvironmentColorIntensity: 0.191
+    - _EnvironmentColorThreshold: 1.5
     - _EnvironmentColoring: 1
     - _FadeBeginDistance: 0.85
     - _FadeCompleteDistance: 0.5

@@ -105,6 +105,8 @@ GameObject:
   - component: {fileID: 4374213127723933178}
   - component: {fileID: 331554498187689589}
   - component: {fileID: 2747147228988236013}
+  - component: {fileID: 8770880769583394078}
+  - component: {fileID: 4673982098152852852}
   m_Layer: 0
   m_Name: Widget.DirLight
   m_TagString: Untagged
@@ -242,3 +244,62 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.060406603, y: 0.07587854, z: 0.05957888}
   m_Center: {x: 0.000000001862646, y: 0.0027715198, z: -0.000000009974009}
+--- !u!114 &8770880769583394078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3636995082099642042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa162a1be707e7f4bb2c94f4fd6df84f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMaterial: {fileID: 2100000, guid: 27295cd499300a94bbd0f9d45b3428e6, type: 2}
+  outlineWidth: 0.01
+--- !u!114 &4673982098152852852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3636995082099642042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69935ecfe76b9574b8576db8631a802e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  markEventsAsUsed: 0
+  onFocusEnterEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8770880769583394078}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onFocusExitEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8770880769583394078}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null

@@ -47,7 +47,6 @@ public class PuzzleManager : MonoBehaviour
     public void CleanPuzzle()
     {
         currentPuzzle.GetComponent<Puzzle>().CleanPuzzles();
-
     }
 
     public void ResetPuzzle()
@@ -84,7 +83,7 @@ public class PuzzleManager : MonoBehaviour
     {
         if(puzzlePartCount == puzzlePartAtGoal)
         {
-            textPuzzleComplete.text = "PUZZLE COMPLETE";
+            textPuzzleComplete.text = "PUZZLE COMPLETE CONGRATS!!!";
             var audio = this.gameObject.GetComponent<AudioSource>();
 
             audio.PlayOneShot(audioPuzzleComplete);
@@ -94,7 +93,7 @@ public class PuzzleManager : MonoBehaviour
     public void ClearCompleteText()
     {
             textPuzzleComplete.text = "";
-        puzzleTimer.ResetTimer();
+       // puzzleTimer.ResetTimer();
     }
 
 }

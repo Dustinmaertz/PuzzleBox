@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Extrior
-    second: {fileID: 2100000, guid: 8dddad32ec7567545932f7cf76e34924, type: 2}
+    second: {fileID: 2100000, guid: c42b0851e29b47d4e99106570f0d6781, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

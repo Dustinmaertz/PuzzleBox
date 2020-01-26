@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1716629927}
   - component: {fileID: 1716629925}
   - component: {fileID: 1716629926}
+  - component: {fileID: 1371247932}
   m_Layer: 0
   m_Name: GameManagers
   m_TagString: Untagged
@@ -61,6 +62,7 @@ MonoBehaviour:
   audioPuzzleRelease: {fileID: 8300000, guid: a0efd56be12666148adf18d9684988d0, type: 3}
   audioPuzzleGoal: {fileID: 8300000, guid: 04bafcffa71fa114eb5cda7f7b9399ed, type: 3}
   audioPuzzleComplete: {fileID: 8300000, guid: a25848418f5f0a9468a3d1e70962b09b, type: 3}
+  currentPuzzle: {fileID: 0}
   puzzlePartCount: 0
   puzzlePartAtGoal: 0
 --- !u!82 &1716629927
@@ -197,3 +199,22 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 33a1397585128af42b5acf865f7d5453, type: 2}
   HandMeshPrefab: {fileID: 1887883006053652, guid: f3de47b952a5c1b4caf09d0fbce1c038,
     type: 3}
+--- !u!114 &1371247932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5922597292862629511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b29237a1b4bfe614d8ed52aec66bea57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzleMaterials:
+  - {fileID: 2100000, guid: 8dddad32ec7567545932f7cf76e34924, type: 2}
+  - {fileID: 2100000, guid: c782f0cb510f5f043aa2a518b77b9d1a, type: 2}
+  - {fileID: 2100000, guid: ef5a04b5288c3d44da6a15bbbe87e327, type: 2}
+  - {fileID: 2100000, guid: 55ec4f26ce23c3b428555029aa854721, type: 2}
+  - {fileID: 2100000, guid: c42b0851e29b47d4e99106570f0d6781, type: 2}
+  - {fileID: 2100000, guid: 2dea794a36a8cca41aef189b3e562db7, type: 2}

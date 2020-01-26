@@ -123,7 +123,7 @@ Material:
     - _Mode: 0
     - _NearLightFade: 0
     - _NearPlaneFade: 0
-    - _NormalMapScale: 1
+    - _NormalMapScale: 2
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _ProximityLight: 0

@@ -12,16 +12,16 @@ public class PuzzleManager : MonoBehaviour
     public GameObject[] puzzles;
     public GameObject collectionSpawn;
     public Transform puzzleSpawn;
-
     public TextMeshPro puzzlePartText;
     public TextMeshPro textPuzzleComplete;
-
+    //public TextMeshPro textPuzzleCompleteScore;
+    //public TextMeshPro textPuzzleCompleteTime;
     public AudioClip audioPuzzleGrab;
     public AudioClip audioPuzzleRelease;
     public AudioClip audioPuzzleGoal;
     public AudioClip audioPuzzleComplete;
 
-    private GameObject currentPuzzle;
+    public GameObject currentPuzzle;
     private PuzzleTimer puzzleTimer;
     private bool puzzleActive = false;
     public int puzzlePartCount;
@@ -66,7 +66,6 @@ public class PuzzleManager : MonoBehaviour
         UpdatePuzzleCollection();
         puzzlePartAtGoal = 0;
         UpdatePuzzlePartText();
-
     }
 
     public void UpdatePuzzleCollection()
@@ -92,8 +91,13 @@ public class PuzzleManager : MonoBehaviour
 
     public void ClearCompleteText()
     {
-            textPuzzleComplete.text = "";
-       // puzzleTimer.ResetTimer();
+        textPuzzleComplete.text = "";
+        // puzzleTimer.ResetTimer();
+    }
+
+    public void UpdateCurrentPuzzleMaterials()
+    {
+        currentPuzzle.gameObject.GetComponent<Puzzle>().UpdatePieceMaterial();
     }
 
 }

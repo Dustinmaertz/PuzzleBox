@@ -9,6 +9,8 @@ using Microsoft.MixedReality.Toolkit.Utilities;
 public class Puzzle : MonoBehaviour
 {
     public GameObject puzzleParts;
+    public Material puzzleMaterial;
+    public Material puzzleIntMaterial;
     public Material ghostMaterial;
     public Transform puzzleSpawn;
     public Transform puzzlePartsGoal;
@@ -30,8 +32,6 @@ public class Puzzle : MonoBehaviour
         GatherReferences();
         SpawnPuzzleParts();
         SetupPuzzleManip();
-
-        
     }
 
     public void GatherReferences()
@@ -64,6 +64,8 @@ public class Puzzle : MonoBehaviour
             puzzleManager.puzzlePartCount++;
         }
 
+        UpdatePieceMaterial();
+
 
         // Add manipulation handeler and mesh collider to puzzle pieces.
         foreach (Transform child in collectionSpawn.transform)
@@ -89,13 +91,13 @@ public class Puzzle : MonoBehaviour
             manip.OnManipulationEnded.AddListener((ManipulationEventData) => child.GetComponent<AudioSource>().PlayOneShot(puzzleManager.audioPuzzleRelease));
 
             // Get puzzle part goal location
-            var  puzzleGoal = child.gameObject.GetComponent<PuzzleGoalLocation>();
+            var puzzleGoal = child.gameObject.GetComponent<PuzzleGoalLocation>();
             puzzleGoal.GetGoalLocation();
 
             Instantiate(WidgetPos, child.transform);
 
             // Check if random dir is checked
-            if(!randomizePartDir)
+            if (!randomizePartDir)
             {
                 child.transform.rotation = Random.rotation;
             }
@@ -105,7 +107,6 @@ public class Puzzle : MonoBehaviour
                 var flippedAngle = child.transform.eulerAngles + 180f * Vector3.up;
                 child.transform.eulerAngles = flippedAngle;
             }
-
         }
         // Update collection
         puzzleCollection.UpdateCollection();
@@ -113,6 +114,8 @@ public class Puzzle : MonoBehaviour
         // Move puzzle to corret location
         puzzleGoalLocation.position = puzzleSpawn.position;
         puzzleGoalLocation.rotation = puzzleSpawn.rotation;
+
+        
     }
 
 
@@ -132,7 +135,6 @@ public class Puzzle : MonoBehaviour
         manip.ManipulationType = ManipulationHandler.HandMovementType.OneHandedOnly;
         var near = puzzleParts.gameObject.GetComponent<NearInteractionGrabbable>();
         near.ShowTetherWhenManipulating = true;
-
 
         // Get and Set collider size
         var col = puzzleParts.GetComponent<BoxCollider>();
@@ -163,6 +165,7 @@ public class Puzzle : MonoBehaviour
         GatherReferences();
         SpawnPuzzleParts();
         SetupPuzzleManip();
+
     }
 
     public void CleanPuzzles()
@@ -177,5 +180,17 @@ public class Puzzle : MonoBehaviour
     public void SpawnPuzzleWidgets()
     {
         Instantiate(WidgetRotSmall, this.transform);
+    }
+
+    public void UpdatePieceMaterial()
+    {
+        GatherReferences();
+        foreach (Transform child in collectionSpawn.transform)
+        {
+            var meshRenderer = child.gameObject.GetComponent<MeshRenderer>();
+            var mats = meshRenderer.materials;
+            mats[0] = puzzleMaterial;
+            //mats[1] = puzzleIntMaterial;
+        }
     }
 }

@@ -34,6 +34,6 @@ public class DrawCut : MonoBehaviour
         Vector3 up = Vector3.Cross((pointA-pointB),(pointA-cam.transform.position)).normalized;
         
         
-        Cutter.Cut(obj, centre, up,null,true,true);
+        Cutter.Cut(obj, centre, up,null,true,false);
     }
 }

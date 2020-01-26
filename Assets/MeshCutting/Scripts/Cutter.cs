@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Microsoft.MixedReality.Toolkit.Input;
 
 public class Cutter : MonoBehaviour
 {
     public static bool currentlyCutting;
     public static Mesh originalMesh;
 
-    public static void Cut(GameObject _originalGameObject, Vector3 _contactPoint, Vector3 _direction, Material _cutMaterial = null, bool fill = true, bool _addRigidbody = false)
+    public static void Cut(GameObject _originalGameObject, Vector3 _contactPoint, Vector3 _direction, Material _cutMaterial = null, bool fill = true, bool _addRigidbody = false , bool _AddSlicer = false)
     {
         if(currentlyCutting)
         {
@@ -89,7 +90,7 @@ public class Cutter : MonoBehaviour
         _originalGameObject.GetComponent<MeshRenderer>().materials = mats;
 
         GameObject rightGO = new GameObject();
-        rightGO.transform.position = _originalGameObject.transform.position + (Vector3.up * .05f);
+        rightGO.transform.position = _originalGameObject.transform.position + (Vector3.up * 0.0f);
         rightGO.transform.rotation = _originalGameObject.transform.rotation;
         rightGO.transform.localScale = _originalGameObject.transform.localScale;
         rightGO.AddComponent<MeshRenderer>();
@@ -105,7 +106,16 @@ public class Cutter : MonoBehaviour
         rightGO.AddComponent<MeshCollider>().sharedMesh = finishedRightMesh;
         rightGO.GetComponent<MeshCollider>().convex = true;
 
-        if(_addRigidbody == true)
+        // Adding slicing components to the right geo along with pointer handler and listener.
+        if (_AddSlicer == true)
+        {
+            rightGO.AddComponent<PointerHandler>();
+            var pointerHandler = rightGO.GetComponent<PointerHandler>();
+            rightGO.AddComponent<SliceByPointer>();
+            pointerHandler.OnPointerDown.AddListener((MixedRealityPointerEventData) => rightGO.GetComponent<SliceByPointer>().SliceOnPoint(MixedRealityPointerEventData));
+        }
+
+        if (_addRigidbody == true)
         {
             rightGO.AddComponent<Rigidbody>();
         }

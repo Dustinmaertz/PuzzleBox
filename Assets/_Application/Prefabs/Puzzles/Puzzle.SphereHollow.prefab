@@ -76,6 +76,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzleParts: {fileID: 4182609109909647995}
+  puzzleMaterial: {fileID: 2100000, guid: ef5a04b5288c3d44da6a15bbbe87e327, type: 2}
+  puzzleIntMaterial: {fileID: 2100000, guid: 66b1cb2c3a6456b4f9e72b7318893f75, type: 2}
   ghostMaterial: {fileID: 2100000, guid: cc0f9c9aa3b651f4d8ad41c367eceacc, type: 2}
   puzzleSpawn: {fileID: 0}
   puzzlePartsGoal: {fileID: 887425781283471464}
@@ -94,6 +96,7 @@ MonoBehaviour:
     type: 3}
   flipSpawnDir: 0
   randomizePartDir: 0
+  puzzleManager: {fileID: 0}
 --- !u!1001 &5272151406197173106
 PrefabInstance:
   m_ObjectHideFlags: 0

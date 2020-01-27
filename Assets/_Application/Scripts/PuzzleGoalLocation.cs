@@ -16,16 +16,16 @@ public class PuzzleGoalLocation : MonoBehaviour
 
     public PuzzleManager puzzleManager;
 
+    private GameObject posWidget;
+
     void Awake()
     {
         PuzzleManager puzMng = GameObject.Find("GameManagers").GetComponent<PuzzleManager>();
         puzzleManager = puzMng;
-
     }
 
     public void GetGoalLocation()
     {
-
         var name = this.name;
         name = name.Remove(name.Length - 7);
         goalLocation = GameObject.Find(name);
@@ -39,6 +39,7 @@ public class PuzzleGoalLocation : MonoBehaviour
         // Check to see if puzzle is grabbed by the user.
         if (isGrabbed == true)
         {
+            
             // Check if puzzle is at goal location
             if (!isAtGoal)
             {
@@ -89,12 +90,15 @@ public class PuzzleGoalLocation : MonoBehaviour
 
     public void GrabStart()
     {
-
-        isGrabbed = true; 
+        //posWidget = this.transform.GetChild(0).gameObject;
+        //posWidget.SetActive(true); 
+         isGrabbed = true; 
     }
 
     public void GrabEnd()
     {
+        //posWidget = this.transform.GetChild(0).gameObject;
+        //posWidget.SetActive(false);
         isGrabbed = false; 
     }
 

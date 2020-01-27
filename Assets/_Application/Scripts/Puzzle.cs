@@ -20,8 +20,6 @@ public class Puzzle : MonoBehaviour
     public List<Transform> puzzleGoalTransform = new List<Transform>();
     public Vector3 colliderSize;
     public GameObject WidgetPos;
-    public GameObject WidgetRot;
-    public GameObject WidgetRotSmall;
 
     public bool flipSpawnDir = false;
     public bool randomizePartDir = false;
@@ -58,7 +56,7 @@ public class Puzzle : MonoBehaviour
         {
             // Instatiate clone of puzzle part
             Instantiate(child, collectionSpawn);
-            SpawnPuzzleWidgets();
+            //SpawnPuzzleWidgets();
             var meshRenderer = child.gameObject.GetComponent<Renderer>();
             meshRenderer.material = ghostMaterial;
             puzzleManager.puzzlePartCount++;
@@ -185,7 +183,7 @@ public class Puzzle : MonoBehaviour
 
     public void SpawnPuzzleWidgets()
     {
-        Instantiate(WidgetRotSmall, this.transform);
+        //Instantiate(WidgetRotSmall, this.transform);
     }
 
     public void UpdatePieceMaterial()

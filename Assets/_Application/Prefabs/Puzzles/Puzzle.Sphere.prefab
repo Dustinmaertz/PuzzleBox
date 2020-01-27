@@ -57,11 +57,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   colliderSize: {x: 0.2, y: 0.2, z: 0.2}
-  WidgetPos: {fileID: 3528563418206901588, guid: 1214ad0e65387984a81d8a90dc026b2e,
+  WidgetPos: {fileID: 8756387838854993463, guid: 0f4f1daff7e7f904fb705a682092325e,
     type: 3}
-  WidgetRot: {fileID: 4812609509458034748, guid: 38d3f50b1140e18488a549fbe1cb7066,
+  WidgetRot: {fileID: 8756387838854993463, guid: 0f4f1daff7e7f904fb705a682092325e,
     type: 3}
-  WidgetRotSmall: {fileID: 4812609509458034748, guid: 38d3f50b1140e18488a549fbe1cb7066,
+  WidgetRotSmall: {fileID: 8756387838854993463, guid: 0f4f1daff7e7f904fb705a682092325e,
     type: 3}
   flipSpawnDir: 0
   randomizePartDir: 0

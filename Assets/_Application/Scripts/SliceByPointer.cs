@@ -19,13 +19,11 @@ public class SliceByPointer : MonoBehaviour
 
             if (angle == Angle.Up)
             {
-                Cutter.Cut(victim, hit, Vector3.up, null, true, false, true);
-
+                Cutter.Cut(victim, hit, Vector3.up, null, true, false, true, true);
             }
             else if (angle == Angle.Forward)
             {
-                Cutter.Cut(victim, hit, Vector3.forward, null, true, false, true);
-
+                Cutter.Cut(victim, hit, Vector3.forward, null, true, false, true, true);
             }
         }
     }

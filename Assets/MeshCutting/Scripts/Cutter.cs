@@ -8,7 +8,7 @@ public class Cutter : MonoBehaviour
     public static bool currentlyCutting;
     public static Mesh originalMesh;
 
-    public static void Cut(GameObject _originalGameObject, Vector3 _contactPoint, Vector3 _direction, Material _cutMaterial = null, bool fill = true, bool _addRigidbody = false , bool _AddSlicer = false)
+    public static void Cut(GameObject _originalGameObject, Vector3 _contactPoint, Vector3 _direction, Material _cutMaterial = null, bool fill = true, bool _addRigidbody = false , bool _AddSlicer = true, bool _MakeGrabbable = false)
     {
         if(currentlyCutting)
         {
@@ -79,8 +79,8 @@ public class Cutter : MonoBehaviour
         Mesh finishedRightMesh = rightMesh.GetGeneratedMesh();
 
         _originalGameObject.GetComponent<MeshFilter>().mesh = finishedLeftMesh;
-        _originalGameObject.AddComponent<MeshCollider>().sharedMesh = finishedLeftMesh;
-        _originalGameObject.GetComponent<MeshCollider>().convex = true;
+        //_originalGameObject.AddComponent<MeshCollider>().sharedMesh = finishedLeftMesh;
+        //_originalGameObject.GetComponent<MeshCollider>().convex = true;
 
         Material[] mats = new Material[finishedLeftMesh.subMeshCount];
         for (int i = 0; i < finishedLeftMesh.subMeshCount; i++)
@@ -90,7 +90,7 @@ public class Cutter : MonoBehaviour
         _originalGameObject.GetComponent<MeshRenderer>().materials = mats;
 
         GameObject rightGO = new GameObject();
-        rightGO.transform.position = _originalGameObject.transform.position + (Vector3.up * 0.0f);
+        rightGO.transform.position = _originalGameObject.transform.position + (Vector3.up * 0.025f);
         rightGO.transform.rotation = _originalGameObject.transform.rotation;
         rightGO.transform.localScale = _originalGameObject.transform.localScale;
         rightGO.AddComponent<MeshRenderer>();
@@ -114,6 +114,12 @@ public class Cutter : MonoBehaviour
             rightGO.AddComponent<SliceByPointer>();
             pointerHandler.OnPointerDown.AddListener((MixedRealityPointerEventData) => rightGO.GetComponent<SliceByPointer>().SliceOnPoint(MixedRealityPointerEventData));
         }
+
+        if (_MakeGrabbable == true)
+        {
+            rightGO.AddComponent<NearInteractionGrabbable>();
+        }
+
 
         if (_addRigidbody == true)
         {

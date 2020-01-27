@@ -142,6 +142,12 @@ public class Puzzle : MonoBehaviour
 
         // Change all renderer sub materials to ghost mat.
         ChangeMaterial(ghostMaterial);
+
+        // Add ball widget to puzzle pieces
+        foreach (Transform child in puzzleParts.transform)
+        {
+            Instantiate(WidgetPos, child.transform);
+        }
     }
 
 

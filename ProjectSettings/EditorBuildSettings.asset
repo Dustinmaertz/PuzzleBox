@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_Application/Scenes/Puzzlebox.Main.unity
     guid: 01c786dd200969f4a95f6f8454dbe039
-  - enabled: 0
+  - enabled: 1
     path: Assets/_Application/Scenes/Puzzlebox.MainTesting.unity
     guid: 3fc0dcbb058a1e145a47e9816f538353
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Application/Scenes/WorkingScenes/Scripting.SliceOnPointerEventData.unity
     guid: 7808c3c9b28282f4fb687f936e83b5e5
   m_configObjects: {}

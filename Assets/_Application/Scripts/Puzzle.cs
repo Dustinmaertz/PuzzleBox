@@ -92,6 +92,7 @@ public class Puzzle : MonoBehaviour
             var puzzleGoal = child.gameObject.GetComponent<PuzzleGoalLocation>();
             puzzleGoal.GetGoalLocation();
 
+            // Instatiate widget in puzzle chunk
             Instantiate(WidgetPos, child.transform);
 
             // Check if random dir is checked
@@ -115,7 +116,6 @@ public class Puzzle : MonoBehaviour
 
         
     }
-
 
     // Set up Puzzle goal object manipulation
     public void SetupPuzzleManip()
@@ -141,13 +141,12 @@ public class Puzzle : MonoBehaviour
         // Change all renderer sub materials to ghost mat.
         ChangeMaterial(ghostMaterial);
 
-        // Add ball widget to puzzle pieces
+        // Add axis widget to puzzle pieces
         foreach (Transform child in puzzleParts.transform)
         {
             Instantiate(WidgetPos, child.transform);
         }
     }
-
 
     void ChangeMaterial(Material newMat)
     {
@@ -169,7 +168,6 @@ public class Puzzle : MonoBehaviour
         GatherReferences();
         SpawnPuzzleParts();
         SetupPuzzleManip();
-
     }
 
     public void CleanPuzzles()
@@ -179,11 +177,6 @@ public class Puzzle : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-    }
-
-    public void SpawnPuzzleWidgets()
-    {
-        //Instantiate(WidgetRotSmall, this.transform);
     }
 
     public void UpdatePieceMaterial()
@@ -196,5 +189,14 @@ public class Puzzle : MonoBehaviour
             mats[0] = puzzleMaterial;
             //mats[1] = puzzleIntMaterial;
         }
+    }
+
+    public void WidgetHide()
+    {
+        WidgetPos.SetActive(false);
+    }
+    public void WidgetShow()
+    {
+        WidgetPos.SetActive(true);
     }
 }
